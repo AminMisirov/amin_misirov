@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tag List</title>
+    <style>
+        /* Ümumi Stil */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #e91e63;
+            margin-top: 20px;
+            font-size: 2rem;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        ul > li {
+            background-color: #fff;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        ul > li > strong {
+            color: #e91e63;
+            font-size: 1.2rem;
+        }
+
+        ul ul {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        ul ul li {
+            background-color: #f3f3f3;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        ul ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        ul ul li a:hover {
+            color: #e91e63;
+        }
+
+        ul ul p {
+            background-color: #f3f3f3;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+            color: #333;
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+    <h1>Tag List</h1>
+    <ul>
+        {% for tag in tags %}
+            <li>
+                <strong>{{ tag.name }}</strong>: 
+                {% if tag.posts.all %}
+                    <ul>
+                        {% for post in tag.posts.all %}
+                            <li><a href="{% url 'post' post.slug %}">{{ post.title }}</a></li> <!-- Post başlığına link əlavə edirik -->
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <ul>
+                        <p><strong>No posts associated with this tag.</strong></p> <!-- "No posts" mesajı taglar kimi göstərilir -->
+                    </ul>
+                {% endif %}
+            </li>
+        {% empty %}
+            <li>No tags found.</li>
+        {% endfor %}
+    </ul>
+    {% endblock content %}
+</body>
+</html>

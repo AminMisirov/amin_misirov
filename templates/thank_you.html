@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  /* Ümumi Stil */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+
+  .form-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+
+  .form-container h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 2px solid ##EC4899;
+    display: inline-block;
+    padding-bottom: 10px;
+  }
+
+  .form-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+  }
+
+  .form-container input,
+  .form-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333;
+  }
+
+  .form-container input:focus,
+  .form-container textarea:focus {
+    border-color: #e91e63;
+    outline: none;
+    box-shadow: 0 0 4px rgba(233, 30, 99, 0.5);
+  }
+
+  .form-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #e91e63;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .form-container button:hover {
+    background-color: #d81b60;
+  }
+  .thank_you_css_content {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .thank_you_css_content h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e91e63;
+    display: inline-block;
+    padding-bottom: 10px;
+  }
+  
+  .thank_you_css_content p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .thank_you_css_content a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #e91e63;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .thank_you_css_content a:hover {
+    background-color: #d81b60;
+  }
+  
+</style>
+<title>Thank You</title>
+<div class="thank_you_css_content">
+    <h1>Thank You for Contacting Us!</h1>
+    <p>Your message has been sent successfully. We will get back to you shortly.</p>
+    <a href="{% url 'homepage' %}">Go back to Home</a>
+</div>
+{% endblock content %}
